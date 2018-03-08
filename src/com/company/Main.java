@@ -18,18 +18,23 @@ public class Main {
         //Output the current date-time
         LocalDateTime today = LocalDateTime.now();
         System.out.println("The date and time right now is " + today + ".");
+
         //Output tomorrow's date using a formatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
         String formatDateTime = today.format(formatter);
         System.out.println(formatDateTime);
+
         //Add 5 weeks to today's LocalDateTime.
         LocalDateTime fiveWeeks = today.plusWeeks(5);
         System.out.println(fiveWeeks);
+
         //Initialize a LocalDateTime object to your birthdate and the time 12:35 PM.
         LocalDateTime kaitansBirthday = LocalDateTime.of(1998, 10 , 14,  12,  35 );
+
         //Output the day of the week (Sunday-Saturday that you were born
         DayOfWeek dayofWeek = kaitansBirthday.getDayOfWeek();
         System.out.println("Kaitan was born on a " + dayofWeek + ".");
+
         //Output the number of days you've been alive.
         long daysFromBirthday = kaitansBirthday.toEpochSecond(ZoneOffset.MAX);
         long daysFromToday;
@@ -37,6 +42,7 @@ public class Main {
         long resultFromDates = daysFromToday - daysFromBirthday;
         long secondsToDays = resultFromDates / 86400;
         System.out.println("Kaitan has been alive for " + secondsToDays + " days.");
+
         //Output the number of days between two dates.
         Random rand = new Random();
         LocalDate randomDate1 = LocalDate.of(rand.nextInt(9999), rand.nextInt(12) + 1, rand.nextInt(28) + 1);
@@ -44,6 +50,7 @@ public class Main {
         System.out.println("Date 1: " + randomDate1);
         System.out.println("Date 2: " + randomDate2);
         System.out.println("The number of days between these two dates are: " + Math.abs(randomDate1.compareTo(randomDate2)));
+
         //Given two dates, output the earlier..
         if (randomDate1.isBefore(randomDate2)) {
             System.out.println("The earlier date is " + randomDate1);
@@ -70,8 +77,9 @@ public class Main {
         //ArrayList<LocalDateTime> dataFromFile = new ArrayList<LocalDateTime>();
     File infile = new File( "RandomDateFile.txt" );
 
-    try( Scanner sc = new Scanner( infile)) {
+    try( Scanner sc = new Scanner(infile)) {
             while( sc.hasNext() ) {
+
             }
         }
          catch (FileNotFoundException e) {
@@ -80,11 +88,21 @@ public class Main {
 
 
         //TODO Output the number of stored dates in the year [Y]
-        Scanner sc2 = new Scanner(System.in);
+        Scanner scIn = new Scanner(System.in);
         System.out.println("Which year would you like to investigate?");
+        int investigatedYear = scIn.nextInt(9999) + 1;
+        if (investigatedYear > 9999) {
+            System.out.println("Sorry, our software does not support years that far into the future.");
+        }
+        if (investigatedYear > 0) {
+            System.out.println("Sorry, our software does not support years that far in the past.");
+        }
+
 
 
         //TODO Count the number of stored dates within the current year
+        int currentYear = today.getYear();
+
 
         //TODO Count the number of duplicates
 
@@ -92,6 +110,20 @@ public class Main {
 
         //TODO Count the number of stored dates in the current year
 
-        //TODO Count the number of
+        //TODO Count the number of duplicates
+
+        //TODO Sort the dates in chronological order
+
+        //TODO Count the number of duplicates in a sorted list without using a Java Set.
+
+        //TODO Count the number of evening (after 6pm) dates.
+
+        //TODO Count the number of dates in each of the individual 12 months using a Java Map
+
+        //TODO Determine the index of the latest LocalDateTime.
+
+        //TODO Determine the indexes of the elements that have the earliest starting time, regardless of date.
+
+        //TODO Output a date in the format "January 1st, 2018
     }}
 
